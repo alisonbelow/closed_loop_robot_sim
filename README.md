@@ -73,7 +73,9 @@ See docs/remaining_work.md
 
 ## Software Design diagram
 
-TODO
+Software design diagram - explains communication and modules
+
+![software design diagram](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/software_design_diagram.png)
 
 ## Troubleshooting
 
