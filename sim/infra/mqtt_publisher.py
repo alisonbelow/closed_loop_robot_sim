@@ -32,11 +32,11 @@ class MQTTPublisher(mqtt.Client):
             print("ERROR: disconnection returned code= {}".format(MQTTPahoRC(rc)))
 
     def on_publish(self, mqttc, obj, mid):
-        print("Published ID={}".format(mid))
         self.msg_count += 1
 
     def on_log(self, mqttc, obj, level, string):
-        print("LOG: {}".format(string))
+        # print("LOG: {}".format(string))
+        pass
 
     def stop_publish(self):
         self._publishing = False

@@ -19,30 +19,28 @@ class MQTTSubscriber(mqtt.Client):
 
     def on_connect(self, mqttc, obj, flags, rc):
         if MQTTPahoRC(rc) == MQTTPahoRC.SUCCESS:
-            print("Connected OK")
             self._connected = True
         else:
             print("ERROR: connection returned code= {}".format(MQTTPahoRC(rc)))
 
     def on_disconnect(self, mqttc, obj, rc):
         if MQTTPahoRC(rc) == MQTTPahoRC.SUCCESS:
-            print("Disconnect OK")
             self._connected = False
-            print("self._connected = {}".format(self._connected))
             if self._subscribed: 
                 self.unsubscribe()
         else:
             print("ERROR: disconnection returned code= {}".format(MQTTPahoRC(rc)))
 
     def on_message(self, mqttc, obj, msg):
-        print("{} #{}: {} {}".format(msg.topic, self.msg_count, msg.qos, msg.payload))
+        # print("{} #{}: {} {}".format(msg.topic, self.msg_count, msg.qos, msg.payload))
+        pass
 
     def on_subscribe(self, mqttc, obj, mid, granted_qos):
-        print("Subscribed: ID={} {}".format(mid, granted_qos))
         self._subscribed = True
 
     def on_log(self, mqttc, obj, level, string):
-        print("LOG: {}".format(string))
+        # print("LOG: {}".format(string))
+        pass
 
     def subscribe_topic(self, callback_fxn):
         connected = self.connect(MOSQUITTO_SERVER, MOSQUITTO_PORT, MOSQUITTO_TIMEOUT)
@@ -59,12 +57,10 @@ class MQTTSubscriber(mqtt.Client):
         self.loop_start()
 
     def unsubscribe(self):
-        print("Unsubscribe")
         self.loop_stop()
         self._subscribed = False
 
     def resubscribe(self):
-        print("Resubscribe")
         self._subscribed = True
         self.loop_start()
         

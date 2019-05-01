@@ -47,7 +47,6 @@ class DBWriter():
         Callback for sensor data
         """
         msg = json.loads(message.payload.decode("utf-8"))
-        print(msg)
         self.influxdb_client.write_points(self._convert_to_influxdb_measurement(msg))
 
     def handle_controller_data(self, client, userdata, message):
@@ -61,7 +60,6 @@ class DBWriter():
         """
         Creates InfluxDB entry
         """
-        print("MSG = {}".format(message))
         return [
         {
             'measurement': "detection",

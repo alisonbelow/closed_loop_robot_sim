@@ -20,7 +20,7 @@ class SIGINT_handler():
         self.SIGINT = False
     
     def signal_handler(self, signal, frame):
-        print("CTRL+C pressed! Exiting.")
+        print("\nCTRL+C pressed! Exiting.")
         self.SIGINT = True
 
 def main():
