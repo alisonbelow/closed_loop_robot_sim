@@ -24,16 +24,16 @@ This is automatically done, but you can add a new data source with the following
 
 # How to import Grafana JSON dashboard
 
-!1. Click on search/open folder icon  
-[grafana 6](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana6.png)  
+1. Click on search/open folder icon  
+![grafana 6](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana6.png)  
 
-!2. Click Import button  
-[grafana 7](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana7.png)
+2. Click Import button  
+![grafana 7](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana7.png)
 
-!3. Click Browse button and select sensor_data_dashboard.json in relativity directory  
-[grafana 8](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana8.png)
+3. Click Browse button and select sensor_data_dashboard.json in relativity directory  
+![grafana 8](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana8.png)
 
-!4. Click save to save dashboard. Can now open to when running robot sim  
-[grafana 9](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana9.png)
+4. Click save to save dashboard. Can now open to when running robot sim  
+![grafana 9](https://github.com/alisonbelow/closed_loop_robot_sim/blob/master/docs/resources/grafana9.png)
 
 [Pictures resources for How to import Grafana JSON dashboard](https://grafana.com/docs/features/export_import/)
