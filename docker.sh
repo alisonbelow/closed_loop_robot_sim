@@ -1,8 +1,8 @@
 #!/bin/bash 
 
 REPO="relativity"
-IMAGE="test"
-TAG="test"
+IMAGE="cl_robot"
+TAG="0.1"
 
 # Command to install docker
 if [ "$1" == "install" ]
@@ -52,7 +52,7 @@ then
                -it \
                -w $HOME \
                -v /tmp/.X11-unix:/tmp/.X11-unix \
-               -v $(pwd)/../relativity:/home/$(id -un)/relativity \
+               -v $(pwd)/../closed_loop_robot_sim:/home/$(id -un)/closed_loop_robot_sim \
                -p 3000:3000 -p 8888:8888 -p 8086:8086 \
                -p 1883:1883 -p 9001:9001 \
                -e INFLUXDB_DB=defaultdb \
@@ -60,7 +60,7 @@ then
                -e INFLUXDB_ADMIN_PASSWORD=adminpass \
                -e INFLUXDB_USER=user \
                -e INFLUXDB_USER_PASSWORD=userpass \
-               -e PATH=$PATH:/home/$(id -un)/relativity \
+               -e PATH=$PATH:/home/$(id -un)/closed_loop_robot_sim \
                --volume /sys/fs/cgroup:/sys/fs/cgroup:ro \
                --volume $(pwd)/env/grafana/provisioning:/etc/grafana/provisioning \
                ${REPO}/${IMAGE}:${TAG} \

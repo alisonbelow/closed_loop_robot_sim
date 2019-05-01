@@ -1,4 +1,4 @@
 #!/bin/bash 
 
-cd ${HOME}/relativity
+cd ${HOME}/closed_loop_robot_sim
 python sim/main.py

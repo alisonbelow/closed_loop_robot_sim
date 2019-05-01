@@ -2,10 +2,10 @@
 
 ## How to Setup Environment
 
-Clone this repository onto a Linux system (Ubuntu). Enter the relativity directory.
+Clone this repository onto a Linux system (Ubuntu). Enter the closed_loop_robot_sim directory.
 
 ```sh
-cd path/to/cloned/directory/relativity
+cd path/to/cloned/directory/closed_loop_robot_sim
 ```
 
 Robot simulation can be run in docker container. First, the user must install docker, or verify it is installed on your machine. To install execute the `docker.sh` script with the argument `install`. After the installation concludes log out of and into your user account to be able to use docker as a non-sudo user.
@@ -31,8 +31,8 @@ NOTE: The first time you run this, it will take ~10 min to build the container. 
 ```sh
 docker images
 # You should see output like:
-# REPOSITORY        TAG     IMAGE ID    CREATED             SIZE
-# relativity/robot  test    ...         A few seconds ago   1.13 GB
+# REPOSITORY            TAG     IMAGE ID    CREATED             SIZE
+# relativity/cl_robot   0.1    ...         A few seconds ago   1.13 GB
 ```
 
 You can remove this docker image from your computer with the command: `./docker.sh remove`  
@@ -48,11 +48,10 @@ Log into Grafana with username `admin` and password `admin`.
 Open the dashboard "Sensor Dashboard". Once logged in,this option should be available on the home page under 'Recently viewed dashboards'. 
 
 ```sh
-cd path/to/cloned/directory/relativity
+cd path/to/cloned/directory
 ./docker.sh bash
 
 # In docker container
-cd relativity
 ./run.sh
 ```
 
@@ -63,7 +62,6 @@ I did not unit test (lack of time), but I did write some pytest files to verify 
 All tests can be run in docker bash (`./docker.sh bash`) with the `pytest` command.
 
 ```sh
-cd ${HOME}/relativity
 pytest test/infra/test_mqtt_wrappers.py     # Test test_mqtt_wrappers.py script
 pytest -s test/infra/test_mqtt_wrappers.py  # Test test_mqtt_wrappers.py script with log output display
 pytest -v test/infra/test_mqtt_wrappers.py  # Test test_mqtt_wrappers.py script with test summary output display
