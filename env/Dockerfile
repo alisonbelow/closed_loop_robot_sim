@@ -61,7 +61,7 @@ COPY env/dep/grafana.ini /etc/grafana/grafana.ini
 COPY env/dep/init.sh /etc/init.d/influxdb
 RUN sudo chmod +x /etc/init.d/influxdb
 
-# Make python 3.5 default 
+# Make python 3.6 default 
 RUN update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1 \
     && update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2 \
     && python -m pip install pip --upgrade 
