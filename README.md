@@ -55,6 +55,8 @@ cd path/to/cloned/directory
 ./run.sh
 ```
 
+If there are docker permission errors, run the command: `sudo chown ${USER} /var/run/docker.sock`
+
 ## Testing
 
 I did not unit test (lack of time), but I did write some pytest files to verify basic functionality of components and do integration testing for pub/sub.
