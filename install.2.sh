@@ -54,12 +54,10 @@ update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
 update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2 \
 python -m pip install pip --upgrade 
 
-cp env/dep/requirements.txt /home/${UNAME}/requirements.txt
-
 export PATH=$PATH:${HOME}/.local/bin
 export PYTHONPATH=$PYTHONPATH:${HOME}/.local/lib/python3.6/site-packages:${HOME}/.local/bin
 python3.6 -m pip install pip --upgrade
-python3.6 -m pip install --user -r ${HOME}/requirements.txt
+python3.6 -m pip install --user -r env/dep/requirements.txt
 
 sudo service grafana-server stop
 sudo service grafana-server restart
