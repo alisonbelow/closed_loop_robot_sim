@@ -5,7 +5,7 @@ ENV CHRONOGRAF_VERSION=1.7.11
 ENV GRAFANA_VERSION=6.1.4
 
 sudo apt-get update
-sudo apt-get install -y software-properties-common
+sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
 sudo add-apt-repository ppa:jonathonf/python-3.6
 sudo apt-add-repository ppa:mosquitto-dev/mosquitto-ppa
 sudo apt-get -y update
@@ -25,7 +25,7 @@ sudo apt-get -y --force-yes install \
         wget \
         gnupg \
         sudo \
-        build-essential python3.6 python3.6-dev python3-pip python3.6-venv \
+        build-essential python3.6 python3.6-dev python3-pip python3.6-venv python3-tkinter\
         mosquitto mosquitto-clients
 
 sudo curl -sL https://deb.nodesource.com/setup_10.x | bash -
@@ -50,12 +50,12 @@ sudo cp env/dep/grafana.ini /etc/grafana/grafana.ini
 sudo cp env/dep/init.sh /etc/init.d/influxdb
 sudo chmod +x /etc/init.d/influxdb
 
-update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
-update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2 \
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.6 2 \
 python -m pip install pip --upgrade 
 
-export PATH=$PATH:${HOME}/.local/bin
-export PYTHONPATH=$PYTHONPATH:${HOME}/.local/lib/python3.6/site-packages:${HOME}/.local/bin
+export PATH=$PATH:$HOME/.local/bin
+export PYTHONPATH=$PYTHONPATH:$HOME/.local/lib/python3.6/site-packages:$HOME/.local/bin:$(pwd)
 python3.6 -m pip install pip --upgrade
 python3.6 -m pip install --user -r env/dep/requirements.txt
 
